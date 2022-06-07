@@ -8,7 +8,6 @@ public class MinValue {
                 index = i;
         return index;
     }
-
     public static void main(String[] args) {
         int numbers[] = {4, 6, 2, 8, -3, 0, -8, 6, 3};
         int index = minArray(numbers);

@@ -15,7 +15,6 @@ public class Student {
                 System.out.println("Position of the students in the list" + inputName + " is: " + i);
                 break;
             }
-        if (count == 0)
-            System.out.println("Not found " + inputName + " in the list");
+        if (count == 0) System.out.println("Not found " + inputName + " in the list");
     }
 }
