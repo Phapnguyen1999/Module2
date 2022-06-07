@@ -2,7 +2,7 @@ package bai5;
 
 import java.util.Scanner;
 
-public class Main {
+public class Draw2 {
     public static void main(String[] args) {
         int choice = -1;
         Scanner scanner = new Scanner(System.in);
@@ -62,12 +62,12 @@ public class Main {
 
                         System.out.println();
                     }
-            break;
-            case 0:
-                System.exit(0);
-            default:
-                System.out.println("No choice!");
+                    break;
+                case 0:
+                    System.exit(0);
+                default:
+                    System.out.println("No choice!");
+            }
         }
     }
-}
 }

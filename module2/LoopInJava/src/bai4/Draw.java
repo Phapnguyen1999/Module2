@@ -2,7 +2,7 @@ package bai4;
 
 import java.util.Scanner;
 
-public class Main {
+public class Draw {
     public static void main(String[] args) {
         int choice = -1;
         Scanner scanner = new Scanner(System.in);
