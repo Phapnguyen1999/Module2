@@ -10,10 +10,9 @@ public class CharInString {
         System.out.print("Enter char: ");
         String character = input.nextLine();
         int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            System.out.print(str.charAt(i) + " ");
-            System.out.println(character.equals(str.charAt(i)));
-        }
-        System.out.printf("So lan %s xuat hien trong chuoi la %d", character, count);
+        for (int i = 0; i < str.length(); i++)
+            if (character.charAt(0) == str.charAt(i))
+                count++;
+        System.out.printf("So lan '%s' xuat hien trong chuoi la %d", character, count);
     }
 }
