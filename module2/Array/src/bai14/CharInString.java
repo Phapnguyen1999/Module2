@@ -11,8 +11,7 @@ public class CharInString {
         String character = input.nextLine();
         int count = 0;
         for (int i = 0; i < str.length(); i++)
-            if (character.charAt(0) == str.charAt(i))
-                count++;
+            if (character.charAt(0) == str.charAt(i)) count++;
         System.out.printf("So lan '%s' xuat hien trong chuoi la %d", character, count);
     }
 }
