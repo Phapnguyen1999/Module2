@@ -1,9 +1,10 @@
 package bai7;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class InsertElement {
-    public static void insertNumber(int number, int index, int arr[]) {
+    public static int[] insertNumber(int number, int index, int arr[]) {
         int arr2[] = new int[arr.length + 1];
         int j = 0;
         for (int i = 0; i < index; i++) {
@@ -16,9 +17,7 @@ public class InsertElement {
             arr2[j] = arr[i];
             j++;
         }
-
-        for (int i : arr2)
-            System.out.print(i + " ");
+        return arr2;
     }
 
     public static void main(String[] args) {
@@ -35,6 +34,7 @@ public class InsertElement {
             System.out.println("Enter index");
             int index = scanner.nextInt();
             insertNumber(numberInsert, index, array);
+        System.out.println(Arrays.toString(insertNumber(numberInsert, index, array)));
 //        int array2[]=new int[array.length+1];
 ////        if (index < 0 || index > array.length - 1) System.out.println("Khong chen duoc!");
 ////        else {
