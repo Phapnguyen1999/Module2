@@ -15,8 +15,12 @@ public class Sumnal {
             }
         double sum = 0;
         for (int i = 0; i < size; i++)
-            for (int j = 0; j < size; j++)
+            for (int j = 0; j < size; j++){
+                System.out.print(arr[i][j]+" ");
+                if (j==size-1)
+                    System.out.println();
                 if (i == j) sum += arr[i][j];
+            }
         System.out.print("Tong duong cheo chinh la: " + sum);
     }
 }
