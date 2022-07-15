@@ -59,9 +59,15 @@ public class OrderMenuView {
                         orderView.showAllOrder();
                         break;
                     case 2:
-                        orderView.deleteOrderByAd();
+                        orderView.confirmOrder();
                         break;
                     case 3:
+                        orderView.showListConfirm();
+                        break;
+                    case 4:
+                        orderView.deleteOrderByAd();
+                        break;
+                    case 5:
                         cont = false;
                         break;
                     default:
@@ -77,9 +83,11 @@ public class OrderMenuView {
     public static void menuOrderAd() {
         System.out.println("* * * * * * * * * ORDER MANAGER * * * * * * * * * * *");
         System.out.println("*                                                   *");
-        System.out.println("*            1. Hiển thị danh sách order            *");
-        System.out.println("*            2. Xoá order (ID)                      *");
-        System.out.println("*            3. Đăng xuất                           *");
+        System.out.println("*            1. Hiển thị danh sách đơn hàng         *");
+        System.out.println("*            2. Xác nhận xác đơn hàng (ID)          *");
+        System.out.println("*            3. Hiển thị đơn hàng đã xác nhận       *");
+        System.out.println("*            4. Xoá Đơn hàng (ID)                   *");
+        System.out.println("*            5. Quay lại                           *");
         System.out.println("*                                                   *");
         System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * *");
     }
@@ -91,7 +99,7 @@ public class OrderMenuView {
         System.out.println("*            2. Order sản phẩm bằng ID               *");
         System.out.println("*            3. Hiển thị danh sách order             *");
         System.out.println("*            4. Xoá sản phẩm đã order                *");
-        System.out.println("*            5. Quay lại                             *");
+        System.out.println("*            5. Đăng xuất                             *");
         System.out.println("*                                                    *");
         System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * **");
     }

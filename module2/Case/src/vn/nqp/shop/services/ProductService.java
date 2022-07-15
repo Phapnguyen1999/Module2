@@ -109,7 +109,8 @@ public class ProductService implements IProductService {
         List<Product> newProducts = new ArrayList<>();
         List<Product> products = findAll();
         for (Product product : products)
-            if (product.getName().toLowerCase().contains(name.toLowerCase())) newProducts.add(product);
+            if (product.getName().toLowerCase().contains(name.toLowerCase()))
+                newProducts.add(product);
         return newProducts;
     }
 }

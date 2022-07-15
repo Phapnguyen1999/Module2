@@ -1,7 +1,6 @@
 package vn.nqp.shop.services;
 
 import vn.nqp.shop.model.Order;
-import vn.nqp.shop.model.Product;
 import vn.nqp.shop.model.User;
 import vn.nqp.shop.utils.CSVUtils;
 
@@ -12,6 +11,7 @@ import java.util.List;
 public class OrderService implements IOrderService {
     public final static String PATH = "data/orderlist.csv";
     public final static String USER_LOGIN = "data/loginlist.csv";
+    public final static String CONFIRM_LIST = "data/confirmlist.csv";
     private static OrderService instance;
 
     public OrderService() {
@@ -54,6 +54,15 @@ public class OrderService implements IOrderService {
         }
         return orders;
     }
+    public List<Order> confimList() {
+        List<Order> orders = new ArrayList<>();
+        List<String> records = CSVUtils.read(CONFIRM_LIST);
+        for (String record : records) {
+            orders.add(Order.parseOrder(record));
+        }
+        return orders;
+    }
+
 
     @Override
     public String findUserName() {
@@ -128,6 +137,19 @@ public class OrderService implements IOrderService {
             }
         }
         CSVUtils.write(PATH, list);
+    }
+    public void confirmOrder(long idOrder){
+        List<Order> orders = findAll();
+        List<Order> list = new ArrayList<>(orders);
+        List<Order> confirmLists=confimList();
+        for (Order order : orders) {
+            if (order.getId() == idOrder) {
+                confirmLists.add(order);
+                list.remove(order);
+            }
+        }
+        CSVUtils.write(PATH, list);
+        CSVUtils.write(CONFIRM_LIST,confirmLists);
     }
 
 }

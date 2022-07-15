@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class ProductMenuView {
     public static void launch() {
-
         int option = -1;
         do {
             Scanner scanner = new Scanner(System.in);

@@ -111,16 +111,8 @@ public class ProductView {
 
     public void findProduct() {
         List<Product> products = new ArrayList<>();
-        String name = null;
-        do {
-            System.out.print("Tên sản phẩm muốn tìm kiếm: ");
-            name = scanner.nextLine();
-            if (!productService.existsByName(name)) {
-                System.out.println("Tên sản phẩm không tồn tại!");
-                continue;
-            }
-            break;
-        } while (true);
+        System.out.print("Tên sản phẩm muốn tìm kiếm: ");
+        String name = scanner.nextLine();
         products = productService.findProductByName(name);
         System.out.println("----------------------------------------- SẢN PHẨM TÌM KIẾM --------------------------------------------------- ");
         System.out.printf("\n\t%-16s %-16s %-45s %s\n\n", "Product Id", "Product Name", "Product Description", "Product Price");

@@ -33,13 +33,13 @@ public class OrderView {
             System.out.print("Nhập ID sản phẩm: ");
             idProduct = Long.parseLong(scanner.nextLine());
             if (!productService.existsById(idProduct)) {
-                System.out.println("Sản phẩm không có trong cửa hàng: ");
+                System.out.println("Id sản phẩm không có trong cửa hàng: ");
                 continue;
             }
             break;
         } while (true);
         do {
-            System.out.print("Nhập số lượng: ");
+            System.out.print("Nhập số lượng (x100gram): ");
             quantity = Integer.parseInt(scanner.nextLine());
             if (quantity < 0) {
                 System.out.println("Xin mời nhập lại số lượng ");
@@ -60,13 +60,16 @@ public class OrderView {
     }
 
     public void showOrderbyUser() {
+        double total=0;
         System.out.println("--------------------------------------------- DANH SÁCH ORDER------------------------------------------------- ");
-        System.out.printf("%-15s %-22s %-15s %-22s %-15s %-20s %-20s %-20s %-20s\n", "Order Id", "User Id", "User Name", "Product ID", "Product Name", "Product Quantity", "Product Price", "Total", "CreateAt");
+        System.out.printf("%-15s %-15s %-15s %-17s %-15s %-20s %-20s %-15s %-20s\n", "Order Id", "User Id", "User Name", "Product ID", "Product Name", "Product Quantity", "Product Price", "Total", "CreateAt");
         List<Order> orders = orderService.showOrder();
         for (Order order : orders) {
-            System.out.printf("%-15s %-22s %-15s %-22s %-15s %-20s %-20s %-20s %-20s\\n", order.getId(), order.getUserId(), order.getUserName(), order.getProductId(), order.getProductName(), order.getQuantity(), AppUtils.doubleToVND(order.getPrice()), AppUtils.doubleToVND(order.getTotal()), order.getCreatedAt());
+            total+=order.getTotal();
+            System.out.printf("%-15s %-15s %-15s %-17s %-15s %-20s %-20s %-15s %-20s\\n", order.getId(), order.getUserId(), order.getUserName(), order.getProductId(), order.getProductName(), order.getQuantity(), AppUtils.doubleToVND(order.getPrice()), AppUtils.doubleToVND(order.getTotal()), order.getCreatedAt());
             System.out.println();
         }
+        System.out.printf("%s\n", "Tổng tiền đã đặt hàng: " + AppUtils.doubleToVND(total));
         System.out.println("---------------------------------------------------------------------------------------------------------------- ");
     }
 
@@ -87,11 +90,10 @@ public class OrderView {
 
     public void showAllOrder() {
         System.out.println("--------------------------------------------- DANH SÁCH ORDER----------------------------------------------------------------------------------------------- ");
-        System.out.printf("%-15s %-22s %-15s %-22s %-15s %-20s %-20s %-20s %-20s\n", "Order Id", "User Id", "User Name", "Product ID", "Product Name", "Product Quantity", "Product Price", "Total", "CreateAt");
+        System.out.printf("%-15s %-15s %-15s %-17s %-15s %-20s %-20s %-15s %-20s\n", "Order Id", "User Id", "User Name", "Product ID", "Product Name", "Product Quantity", "Product Price", "Total", "CreateAt");
         List<Order> orders = orderService.findAll();
         for (Order order : orders) {
-            System.out.printf("%-15s %-22s %-15s %-22s %-15s %-20s %-20s %-20s %-20s\n", order.getId(), order.getUserId(), order.getUserName(), order.getProductId(), order.getProductName(), order.getQuantity(), AppUtils.doubleToVND(order.getPrice()), AppUtils.doubleToVND(order.getTotal()), order.getCreatedAt());
-            System.out.println();
+            System.out.printf("%-15s %-15s %-15s %-17s %-15s %-20s %-20s %-15s %-20s\n", order.getId(), order.getUserId(), order.getUserName(), order.getProductId(), order.getProductName(), order.getQuantity(), AppUtils.doubleToVND(order.getPrice()), AppUtils.doubleToVND(order.getTotal()), order.getCreatedAt());
         }
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------- ");
     }
@@ -105,9 +107,38 @@ public class OrderView {
                 System.out.println("ID không có trong danh sách! Mời nhập lại");
                 continue;
             }
-            System.out.println("Xoá order thành công");
             break;
         } while (true);
         orderService.deleteByAd(idOrder);
+        System.out.println("Xoá order thành công");
+    }
+
+    public void confirmOrder() {
+        long idOrder;
+        do {
+            System.out.print("Nhập Id Order muốn xác nhận: ");
+            idOrder = Long.parseLong(scanner.nextLine());
+            if (!orderService.existsByIdOrder(idOrder)) {
+                System.out.println("ID không có trong danh sách! Mời nhập lại");
+                continue;
+            }
+            break;
+        } while (true);
+        orderService.confirmOrder(idOrder);
+        System.out.println("Xác nhận đơn hàng thành công!");
+    }
+
+    public void showListConfirm() {
+        double total = 0;
+        System.out.println("--------------------------------------------- DANH SÁCH CONFIRM ----------------------------------------------------------------------------------------------- ");
+        System.out.printf("%-15s %-15s %-15s %-17s %-15s %-20s %-20s %-15s %-20s\n", "Order Id", "User Id", "User Name", "Product ID", "Product Name", "Product Quantity", "Product Price", "Total", "CreateAt");
+        List<Order> orders = orderService.confimList();
+        for (Order order : orders) {
+            total += order.getTotal();
+            System.out.printf("%-15s %-15s %-15s %-17s %-15s %-20s %-20s %-15s %-20s\n", order.getId(), order.getUserId(), order.getUserName(), order.getProductId(), order.getProductName(), order.getQuantity(), AppUtils.doubleToVND(order.getPrice()), AppUtils.doubleToVND(order.getTotal()), order.getCreatedAt());
+        }
+        System.out.println();
+        System.out.printf("%164s\n", "Tổng doanh thu: " + AppUtils.doubleToVND(total));
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------- ");
     }
 }
