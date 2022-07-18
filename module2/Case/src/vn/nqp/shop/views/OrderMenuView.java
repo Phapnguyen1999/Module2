@@ -93,7 +93,7 @@ public class OrderMenuView {
     }
 
     public static void menuOrder() {
-        System.out.println("* * * * * * * * * * * MENU ORDER * * * * * * * * * * *");
+        System.out.println("* * * * * * * * * * * MENU USER * * * * * * * * * * *");
         System.out.println("*                                                    *");
         System.out.println("*            1. Hiển thị danh sách sản phẩm          *");
         System.out.println("*            2. Order sản phẩm bằng ID               *");
