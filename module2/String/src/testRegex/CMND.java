@@ -1,2 +1,4 @@
-package testRegex;public class CanCuocCD {
+package testRegex;
+
+public class CMND {
 }

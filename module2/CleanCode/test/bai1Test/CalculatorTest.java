@@ -1,3 +1,4 @@
+package bai1Test;
 
 import bai1.Calculator;
 import org.junit.Test;

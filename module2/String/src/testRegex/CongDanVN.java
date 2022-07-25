@@ -1,2 +1,7 @@
-package testRegex;public class CongDanVN {
-}
+package testRegex;
+
+//public class CongDanVN {
+//    public CMND getCMND(){
+////        return ;
+//    }
+//}

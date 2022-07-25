@@ -5,7 +5,7 @@ import menu.view.InputOption;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class AppUntils {
+public class AppUtils {
     static Scanner scanner = new Scanner(System.in);
 
     public static int retryChoose(int min, int max) {

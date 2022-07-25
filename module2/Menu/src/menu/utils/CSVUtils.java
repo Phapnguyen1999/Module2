@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CVSUtils {
+public class CSVUtils {
     public static <T> void write(String path, List<T> items) {
         try {
             PrintWriter printWriter = new PrintWriter(path);

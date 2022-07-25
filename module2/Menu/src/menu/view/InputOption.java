@@ -1,2 +1,5 @@
-package menu.view;public class InputOption {
+package menu.view;
+
+public enum InputOption {
+    ADD,UPDATE,SHOW,DELETE
 }

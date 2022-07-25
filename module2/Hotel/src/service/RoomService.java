@@ -1,2 +1,4 @@
-package service;public class RoomService {
+package service;
+
+public class RoomService {
 }

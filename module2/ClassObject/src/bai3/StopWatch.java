@@ -11,19 +11,34 @@ public class StopWatch {
     }
 
     public LocalTime getEndTime(LocalTime endTime) {
-
         return endTime;
     }
-    public void start(){
-        this.startTime=LocalTime.now();
+
+    StopWatch() {
+        startTime = LocalTime.now();
+    }
+
+    public void start() {
+        this.startTime = LocalTime.now();
         getStartTime(startTime);
     }
-    public void stop(){
-        this.endTime=LocalTime.now();
+
+    public void stop() {
+        this.endTime = LocalTime.now();
         getEndTime(endTime);
     }
-    public void getElapsedTime(){
-        int ElapsedTime= (startTime.toSecondOfDay() -endTime.toSecondOfDay());
-        System.out.println("So mili giay dem duoc: "+ElapsedTime);
+
+    public void getElapsedTime() {
+        int ElaspedTime = (endTime.()-startTime.toSecondOfDay()) * 100;
+        System.out.println("Số mili giây đếm đc:" + ElaspedTime);
+    }
+
+    public static void main(String[] args) {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        System.out.println("Đang đếm thời gian");
+        for (int i = 1; i <= 1000000; i++)
+            stopWatch.stop();
+        stopWatch.getElapsedTime();
     }
 }

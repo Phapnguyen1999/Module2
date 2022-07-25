@@ -1,6 +1,6 @@
 package bai7;
 
-public class Main {
+public class StackTest {
     public static void main(String[] args) throws Exception {
         MyStack stack = new MyStack(5);
 
@@ -18,6 +18,5 @@ public class Main {
         }
 
         System.out.println("\n3. Size of stack after pop operations : " + stack.size());
-    }
     }
 }

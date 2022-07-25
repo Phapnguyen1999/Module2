@@ -1,2 +1,11 @@
-package PACKAGE_NAME;public class Main {
+package menu;
+
+
+import menu.view.MainLauncher;
+
+public class Main {
+    public static void main(String[] args) {
+        MainLauncher.launch();
+    }
+
 }

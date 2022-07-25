@@ -1,4 +1,6 @@
-package menu.product;
+package menu.model;
+
+import menu.service.ProductService;
 
 public class Product {
     private long id;
@@ -6,16 +8,30 @@ public class Product {
     private int quantity;
     private double price;
 
-    public Product(long id, String name,int quantity, double price){
-        this.id =id;
-        this.name=name;
-        this.quantity=quantity;
-        this.price=price;
+    public Product(long id, String name, int quantity, double price) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
     }
-    public Product(String name, int quantity,double price){
-        this.name=name;
-        this.quantity=quantity;
-        this.price=price;
+
+    public Product(String name, int quantity, double price) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
+    public Product(){
+
+    }
+
+    public static Product parseProduct(String raw) {
+        Product product=new Product();
+        String[] fields = raw.split(",");
+        product.id = Long.parseLong(fields[0].trim());
+        product.name = fields[1].trim();
+        product.quantity = Integer.parseInt(fields[2].trim());
+        product.price = Double.parseDouble(fields[3].trim());
+        return product;
     }
 
 

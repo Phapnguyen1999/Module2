@@ -1,2 +1,4 @@
-package testRegex;public class SoHK {
+package testRegex;
+
+public class SoHK {
 }
