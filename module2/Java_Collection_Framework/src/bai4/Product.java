@@ -1,4 +1,4 @@
-package product;
+package bai4;
 
 public class Product {
     private int id;
